@@ -48,7 +48,7 @@ Please follow the instruction below to install it and run the experiment demo.
 
 1. Calibration using temperature scaling
 ```python
-   from calibration_methods.temperature_scaling import *
+   from temperature_scaling import tune_temp
    # Load the labels of calibration dataset
    cal_labels = torch.load('/path/to/features/cifar10_labels.pt')
 
