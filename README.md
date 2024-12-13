@@ -8,7 +8,7 @@ Vision–Language Models (VLMs) have emerged as the dominant approach for zero-s
 
 <figure class="image">
   <p align="center">
-    <img src="flow_chart.png" width="60%" height="60%" />
+    <img src="comparison.PNG" width="60%" height="60%" />
   </p>
 </figure>
 
