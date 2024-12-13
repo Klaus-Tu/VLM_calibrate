@@ -7,7 +7,7 @@ from tqdm import tqdm
 def extract_fea(loader, model, device):
     model.eval()
 
-    logits_list = []
+    fea_list = []
     labels_list = []
 
     for j, (input, label) in enumerate(tqdm(loader)):
@@ -17,15 +17,14 @@ def extract_fea(loader, model, device):
 
             image_features = model.encode_image(input)
             image_features /= image_features.norm(dim=-1, keepdim=True)
-            logit = image_features
 
-        logits_list.append(logit)
+        fea_list.append(image_features)
         labels_list.append(label)
 
-    logits = torch.cat(logits_list)
+    features = torch.cat(fea_list)
     labels = torch.cat(labels_list)
 
-    return logits.cpu(), labels.cpu()
+    return features.cpu(), labels.cpu()
 
 
 def zeroshot_classifier(model, tokenizer, classnames, templates, device):
