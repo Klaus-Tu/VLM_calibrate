@@ -3,6 +3,31 @@ import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 
+
+def extract_fea(loader, model, device):
+    model.eval()
+
+    logits_list = []
+    labels_list = []
+
+    for j, (input, label) in enumerate(tqdm(loader)):
+        with torch.no_grad():
+            input = input.to(device)
+            label = label.to(device)
+
+            image_features = model.encode_image(input)
+            image_features /= image_features.norm(dim=-1, keepdim=True)
+            logit = image_features
+
+        logits_list.append(logit)
+        labels_list.append(label)
+
+    logits = torch.cat(logits_list)
+    labels = torch.cat(labels_list)
+
+    return logits.cpu(), labels.cpu()
+
+
 def zeroshot_classifier(model, tokenizer, classnames, templates, device):
     with torch.no_grad():
         zeroshot_weights = []
