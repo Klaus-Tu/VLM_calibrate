@@ -1,4 +1,4 @@
-# Calibrate VLMs
+# An Empirical Study Into What Matters for Calibrating VLMs
 
 This codebase provides an official implementation for the paper: [An Empirical Study Into What Matters for Calibrating Vision-Language Models
 ]([https://arxiv.org/abs/2303.13251](https://arxiv.org/pdf/2402.07417)) at ICML 2024.
