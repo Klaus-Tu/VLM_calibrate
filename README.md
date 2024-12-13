@@ -16,7 +16,7 @@ Vision–Language Models (VLMs) have emerged as the dominant approach for zero-s
 
 This repository contains:
 
-- the Python implementation of temperature scaling and ECE error.
+- the Python implementation of temperature scaling and ECE.
 - the pipeline of calibrating VLMs.
 
 Please follow the instruction below to install it and run the experiment demo.
